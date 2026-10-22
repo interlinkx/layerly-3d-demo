@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layerly – 3D Printing On Demand</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--text:#e8eaf0;--muted:#9aa3b2;--accent:#ff6b35;--accent2:#ffb347;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+h1,h2,h3{line-height:1.2}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:12px;text-align:center}
+.sub{text-align:center;color:var(--muted);max-width:600px;margin:0 auto 48px}
+.btn{display:inline-block;padding:14px 28px;border-radius:999px;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid #3a4050;color:var(--text)}
+nav{position:sticky;top:0;z-index:10;background:rgba(15,17,21,.85);backdrop-filter:blur(10px);border-bottom:1px solid #222733}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:800;font-size:1.3rem}.logo span{color:var(--accent)}
+nav ul{display:flex;gap:24px;list-style:none;color:var(--muted);font-size:.95rem}
+nav ul a:hover{color:var(--text)}
+.hero{background:linear-gradient(rgba(15,17,21,.65),rgba(15,17,21,.95)),url('https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=1800&q=80') center/cover;padding:130px 0 110px;text-align:center}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);max-width:800px;margin:0 auto 20px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#c3c9d6;max-width:560px;margin:0 auto 32px;font-size:1.15rem}
+.hero .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.grid{display:grid;gap:24px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid #222733;border-radius:var(--r);padding:28px}
+.step .n{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#111;font-weight:800;display:grid;place-items:center;margin-bottom:16px}
+.card p{color:var(--muted);margin-top:8px;font-size:.95rem}
+.mat{padding:0;overflow:hidden}
+.mat img{height:170px;width:100%;object-fit:cover}
+.mat div{padding:20px}
+.tag{display:inline-block;font-size:.75rem;color:var(--accent2);border:1px solid #3a3020;border-radius:999px;padding:2px 10px;margin-top:10px}
+.gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.gallery img{width:100%;height:260px;object-fit:cover;border-radius:var(--r);transition:transform .3s}
+.gallery .it{overflow:hidden;border-radius:var(--r)}
+.gallery .it:hover img{transform:scale(1.06)}
+.price{text-align:center}
+.price .amt{font-size:2.4rem;font-weight:800;margin:10px 0}
+.price .amt small{font-size:1rem;color:var(--muted);font-weight:400}
+.price.pop{border-color:var(--accent)}
+.price ul{list-style:none;color:var(--muted);margin-top:12px;font-size:.95rem}
+.price li{padding:4px 0}
+.quote .who{display:flex;align-items:center;gap:12px;margin-top:20px}
+.quote .who img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.quote .who small{color:var(--muted);display:block}
+.cta{text-align:center;background:linear-gradient(135deg,#1c1410,#2a1a10);border-top:1px solid #3a2515;border-bottom:1px solid #3a2515}
+.cta h2{margin-bottom:16px}
+.cta p{color:var(--muted);margin-bottom:28px}
+footer{padding:48px 0 28px;color:var(--muted);font-size:.9rem}
+footer .cols{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;margin-bottom:32px}
+footer h4{color:var(--text);margin-bottom:10px}
+footer li{list-style:none;padding:3px 0}
+footer .copy{border-top:1px solid #222733;padding-top:20px;text-align:center}
+@media(max-width:700px){nav ul{display:none}section{padding:56px 0}.hero{padding:90px 0 70px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#" class="logo">Layer<span>ly</span></a>
+  <ul><li><a href="#how">How it works</a></li><li><a href="#materials">Materials</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#pricing">Pricing</a></li></ul>
+  <a href="#cta" class="btn" style="padding:9px 20px">Get a quote</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>Your ideas, <em>printed</em> and delivered.</h1>
+  <p>Upload your 3D model or pick a ready-made design. Choose a material, and we'll print and ship it to your door.</p>
+  <div class="btns"><a href="#cta" class="btn">Upload a model</a><a href="#gallery" class="btn ghost">Browse designs</a></div>
+</div></header>
+
+<section id="how"><div class="wrap">
+  <h2>How it works</h2><p class="sub">From file to front door in four simple steps.</p>
+  <div class="grid g4">
+    <div class="card step"><div class="n">1</div><h3>Upload or pick</h3><p>Drop in an STL/OBJ file or choose from our library of ready-to-print designs.</p></div>
+    <div class="card step"><div class="n">2</div><h3>Choose material</h3><p>Select material, color, and finish. See an instant price preview.</p></div>
+    <div class="card step"><div class="n">3</div><h3>We print</h3><p>Our print farm checks your model and prints it with care and precision.</p></div>
+    <div class="card step"><div class="n">4</div><h3>We ship</h3><p>Quality-checked, packed, and shipped fast, usually within 3–5 days.</p></div>
+  </div>
+</div></section>
+
+<section id="materials" style="background:#12151b"><div class="wrap">
+  <h2>Materials</h2><p class="sub">Pick the right material for strength, detail, or looks.</p>
+  <div class="grid g3">
+    <div class="card mat"><img src="https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=700&q=80" alt="PLA filament spools"><div><h3>PLA</h3><p style="color:var(--muted)">Affordable, easy, and great for prototypes and display pieces.</p><span class="tag">Best value</span></div></div>
+    <div class="card mat"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=700&q=80" alt="Engineering parts"><div><h3>PETG / ABS</h3><p style="color:var(--muted)">Tough, heat-resistant and durable for functional parts.</p><span class="tag">Strong</span></div></div>
+    <div class="card mat"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=700&q=80" alt="Detailed resin print"><div><h3>Resin</h3><p style="color:var(--muted)">Ultra-fine detail and smooth surfaces for miniatures and models.</p><span class="tag">High detail</span></div></div>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <h2>Gallery</h2><p class="sub">A peek at what we've printed for customers.</p>
+  <div class="grid gallery">
+    <div class="it"><img src="https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?auto=format&fit=crop&w=600&q=80" alt="3D printer at work" loading="lazy"></div>
+    <div class="it"><img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80" alt="Printed objects" loading="lazy"></div>
+    <div class="it"><img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=80" alt="Prototype part" loading="lazy"></div>
+    <div class="it"><img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=600&q=80" alt="Printer nozzle close-up" loading="lazy"></div>
+    <div class="it"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Electronics and circuitry" loading="lazy"></div>
+    <div class="it"><img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=600&q=80" alt="Maker workshop" loading="lazy"></div>
+  </div>
+</div></section>
+
+<section id="pricing" style="background:#12151b"><div class="wrap">
+  <h2>Simple pricing</h2><p class="sub">Transparent pricing based on size and material. No hidden fees.</p>
+  <div class="grid g3">
+    <div class="card price"><h3>Small</h3><div class="amt">$9<small> from</small></div><p>Up to 5 cm</p><ul><li>PLA included</li><li>Standard finish</li></ul></div>
+    <div class="card price pop"><h3>Medium</h3><div class="amt">$24<small> from</small></div><p>Up to 12 cm</p><ul><li>PLA, PETG or ABS</li><li>Smoothed finish</li><li>Priority queue</li></ul></div>
+    <div class="card price"><h3>Large</h3><div class="amt">$59<small> from</small></div><p>Up to 25 cm</p><ul><li>All materials</li><li>Premium finish</li><li>Free shipping</li></ul></div>
+  </div>
+</div></section>
+
+<section id="testimonials"><div class="wrap">
+  <h2>Loved by makers</h2><p class="sub">Hear from designers, hobbyists, and engineers.</p>
+  <div class="grid g3">
+    <div class="card quote">“The detail on my miniatures is unreal. Arrived in four days, perfectly packed.”<div class="who"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Customer"><div>Maya R.<small>Tabletop designer</small></div></div></div>
+    <div class="card quote">“Uploaded a CAD file in the morning, had a working prototype by the end of the week.”<div class="who"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Customer"><div>Daniel K.<small>Product engineer</small></div></div></div>
+    <div class="card quote">“I don't own a printer and didn't need to. Great quality and friendly support.”<div class="who"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Customer"><div>Priya S.<small>Hobbyist</small></div></div></div>
+  </div>
+</div></section>
+
+<section id="cta" class="cta"><div class="wrap">
+  <h2>Ready to bring your design to life?</h2>
+  <p>Upload your model and get an instant quote in seconds.</p>
+  <a href="#" class="btn">Start your print</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div><div class="logo">Layer<span>ly</span></div><p style="margin-top:8px;max-width:260px">On-demand 3D printing, shipped worldwide.</p></div>
+    <div><h4>Product</h4><ul><li>How it works</li><li>Materials</li><li>Pricing</li></ul></div>
+    <div><h4>Company</h4><ul><li>About</li><li>Contact</li><li>Careers</li></ul></div>
+    <div><h4>Support</h4><ul><li>FAQ</li><li>Shipping</li><li>File guidelines</li></ul></div>
+  </div>
+  <div class="copy">© 2026 Layerly. All rights reserved.</div>
+</div></footer>
+
+</body>
+</html>
